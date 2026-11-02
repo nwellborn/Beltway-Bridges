@@ -59,24 +59,20 @@
   .hero-copy p{font-size:1.1rem; color:var(--pine-deep); font-weight:500; line-height:1.55;}
 
   .feature-row{display:grid; grid-template-columns:repeat(3, 1fr); gap:1.1rem; margin:1.6rem 0 2rem;}
-  .feature-card{border-radius:16px; padding:1.6rem 1.5rem; display:flex; flex-direction:column; gap:0.4rem;}
-  .feature-card.blue{background:#EAEEFB;}
-  .feature-card.green{background:var(--green-soft);}
-  .feature-card.red{background:var(--amber-soft);}
-  .feature-icon{width:54px; height:54px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:0.4rem;}
-  .feature-icon svg{width:28px; height:28px;}
-  .feature-card h3{font-size:1.2rem;}
-  .feature-card.blue h3{color:var(--pine-deep);}
-  .feature-card.green h3{color:var(--green);}
-  .feature-card.red h3{color:var(--amber);}
-  .feature-card p{font-size:0.92rem; color:var(--ink-soft); flex-grow:1; margin:0;}
-  .feature-card .btn{margin-top:0.9rem; width:100%; text-align:center; border-radius:9px; padding:0.75rem; font-weight:700; border:none; cursor:pointer;}
-  .feature-card.blue .btn{background:var(--pine-deep); color:#fff;}
-  .feature-card.green .btn{background:var(--green); color:#fff;}
-  .feature-card.red .btn{background:var(--amber); color:#fff;}
-  .feature-links{display:flex; gap:0.9rem; margin-top:0.6rem; font-size:0.85rem; font-weight:600; color:var(--amber);}
-  .feature-links span{cursor:pointer;}
-  .feature-links span:hover{text-decoration:underline;}
+  .feature-card{border-radius:22px; padding:1.5rem 1.5rem 1.4rem; display:flex; flex-direction:column; align-items:flex-start; gap:0.55rem; cursor:pointer; transition:transform .15s, box-shadow .15s;}
+  .feature-card:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(16,27,77,0.08);}
+  .feature-card.blue{background:#EAEDFA;}
+  .feature-card.green{background:#E6F1E9;}
+  .feature-card.red{background:#FDE7E6;}
+  .feature-icon{width:34px; height:34px; display:flex; align-items:center; justify-content:center; margin-bottom:0.2rem;}
+  .feature-icon svg{width:34px; height:34px;}
+  .feature-label{font-family:'Inter',sans-serif; font-weight:700; font-size:1rem; letter-spacing:0.01em; text-transform:uppercase; color:var(--ink); margin-top:0.3rem;}
+  .feature-card h3{font-family:'Inter',sans-serif; font-size:1.05rem; font-weight:700; color:var(--ink); letter-spacing:0; margin-top:0.2rem;}
+  .feature-card p{font-size:0.95rem; color:var(--ink); flex-grow:1; margin:0.2rem 0 0.4rem; line-height:1.55;}
+  .feature-card .pill{border:none; cursor:pointer; font-family:'Inter',sans-serif; font-weight:500; font-size:0.9rem; padding:0.3rem 0.8rem; border-radius:999px; margin-top:0.2rem;}
+  .feature-card.green .pill{background:#CFEBD8; color:#1E8A45;}
+  .feature-card.blue .pill{background:#D6E2FD; color:#3B7BEA;}
+  .feature-card.red .pill{background:#FFD3D1; color:#DC2F2F;}
 
   .footer-strip{border-top:1px solid var(--line); padding:1rem 6vw; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem; font-size:0.9rem; color:var(--pine-deep); font-weight:600;}
   .footer-strip .fs-item{display:flex; align-items:center; gap:0.4rem;}
@@ -179,6 +175,9 @@
   .results-meta strong{color:var(--ink);}
   .grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap:1.1rem;}
   .card{background:var(--surface); border:1px solid var(--line); border-radius: var(--radius); padding:1.3rem 1.3rem 1.1rem; display:flex; flex-direction:column; gap:0.7rem;}
+  .avatar{border-radius:50%; overflow:hidden; flex-shrink:0; background:#EAEEFB; display:block;}
+  .avatar img,.avatar svg{width:100%; height:100%; display:block; object-fit:cover;}
+  .card-id{display:flex; gap:0.75rem; align-items:center; min-width:0;}
   .card-top{display:flex; justify-content:space-between; gap:0.6rem; align-items:flex-start;}
   .card h3{font-size:1.05rem; line-height:1.25;}
   .creds{font-size:0.78rem; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace;}
@@ -271,24 +270,26 @@
   <div class="free-ribbon">💚 Always free for families</div>
 
   <div class="feature-row">
-    <div class="feature-card green">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7" r="3" stroke="#2E7D4F" stroke-width="2"/><circle cx="5" cy="10" r="2.4" stroke="#2E7D4F" stroke-width="2"/><circle cx="19" cy="10" r="2.4" stroke="#2E7D4F" stroke-width="2"/><path d="M4 20c0-3.5 3-5.5 8-5.5s8 2 8 5.5" stroke="#2E7D4F" stroke-width="2"/></svg></div>
-      <h3>Find Your Matches</h3>
-      <p>Complete our personalized matching questionnaire, and speech-language pathologists who fit your needs will reach out to you.</p>
-      <button class="btn" onclick="goToRequest()">Get Matched</button>
+    <div class="feature-card green" onclick="goToRequest()">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2E7D4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17.5" cy="9" r="2.5"/><path d="M3 20c0-3.4 2.7-6 6-6s6 2.6 6 6"/><path d="M15.5 14.3c.6-.2 1.3-.3 2-.3 2.2 0 3.9 1.8 3.9 4"/></svg></div>
+      <div class="feature-label">For Families</div>
+      <h3>Find the Right Support</h3>
+      <p>Discover local providers and specialists who understand your child's unique needs.</p>
+      <button class="pill" onclick="event.stopPropagation(); goToRequest()">Get Started</button>
     </div>
-    <div class="feature-card blue">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="6.5" stroke="#101B4D" stroke-width="2"/><line x1="15" y1="15" x2="21" y2="21" stroke="#101B4D" stroke-width="2" stroke-linecap="round"/></svg></div>
-      <h3>Browse Local Clinicians</h3>
-      <p>Search trusted DC-area speech-language pathologists near your ZIP code.</p>
-      <button class="btn" onclick="switchTab('discover')">Browse Clinicians</button>
+    <div class="feature-card blue" onclick="chooseClinicianSignup()">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1D2E73" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><circle cx="5.5" cy="18.5" r="2.2"/><circle cx="18.5" cy="18.5" r="2.2"/><path d="M12 7.2v4.3M12 11.5H5.5v4.8M12 11.5h6.5v4.8"/></svg></div>
+      <div class="feature-label">For Professionals</div>
+      <h3>Build Your Referral Network</h3>
+      <p>Connect with trusted local providers, discover referral partners, and reach more families.</p>
+      <button class="pill" onclick="event.stopPropagation(); chooseClinicianSignup()">Join the Network</button>
     </div>
-    <div class="feature-card red">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="15" rx="2" stroke="#D93A3A" stroke-width="2"/><path d="M3.5 9.5h17" stroke="#D93A3A" stroke-width="2"/><path d="M8 3v4M16 3v4" stroke="#D93A3A" stroke-width="2" stroke-linecap="round"/><path d="M12 12l1.6 1.6L16 11" stroke="#D93A3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h3>Find Social Groups</h3>
-      <p>Discover local social groups, plus camps and events that build communication, confidence, and connection.</p>
-      <button class="btn" onclick="switchTab('groups')">Explore Groups</button>
-      <div class="feature-links"><span onclick="switchTab('groups')">Camps</span><span onclick="switchTab('groups')">Events</span></div>
+    <div class="feature-card red" onclick="switchTab('groups')">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D93A3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h6"/><path d="M4 10h16M8 3v4M16 3v4"/><path d="M19 22l-3.2-3.1a1.9 1.9 0 0 1 2.7-2.7l.5.5.5-.5a1.9 1.9 0 0 1 2.7 2.7z"/></svg></div>
+      <div class="feature-label">Local Activities &amp; Events</div>
+      <h3>Find Your Community</h3>
+      <p>Explore social groups, camps, workshops, and local events that build communication, confidence, and connection.</p>
+      <button class="pill" onclick="event.stopPropagation(); switchTab('groups')">Explore Activities</button>
     </div>
   </div>
 </header>
@@ -772,6 +773,26 @@ function buildChips(container, options, targetSet, onChange){
 }
 
 /* ================= Provider data ================= */
+/* Dummy profile pictures: generated illustrated avatars. To use a real photo, add photo:"path/or/url.jpg" to a provider. */
+function avatarSVG(name){
+  let h=0; for(const ch of name) h=(h*31+ch.charCodeAt(0))>>>0;
+  const pick=(arr,k)=>arr[(h>>>k)%arr.length];
+  const skin=pick(['#F3D2B5','#E8B98F','#C98F66','#A8693F','#7A4A2B'],0);
+  const hair=pick(['#2B1B12','#4A3020','#8A5A2B','#C9A15A','#1C1C1C','#6B6B6B'],3);
+  const bg=pick(['#DDE6FA','#E4F1E9','#FDE7E6','#EFE7F2','#FFF1D6','#D8EEF2'],6);
+  const top=pick(['#1D2E73','#2E7D4F','#D93A3A','#4B5FA8','#3A8FB7','#7A5AA6'],9);
+  const style=(h>>>12)%3;
+  let hairBack='', hairFront='';
+  if(style===0){ hairBack=`<path d="M22 50c0-16 8-26 18-26s18 10 18 26c0 6-2 14-4 18H26c-2-4-4-12-4-18z" fill="${hair}"/>`; hairFront=`<path d="M24 44c2-12 10-18 16-18s14 6 16 18c-6-5-12-8-16-8s-10 3-16 8z" fill="${hair}"/>`; }
+  else if(style===1){ hairFront=`<path d="M24 42c0-12 7-19 16-19s16 7 16 19c-5-6-10-8-16-8s-11 2-16 8z" fill="${hair}"/><circle cx="40" cy="22" r="6" fill="${hair}"/>`; }
+  else { hairFront=`<path d="M24 40c1-11 8-17 16-17s15 6 16 17c-4-4-9-6-16-6s-12 2-16 6z" fill="${hair}"/>`; }
+  return `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" fill="${bg}"/>${hairBack}<path d="M10 84c2-16 14-24 30-24s28 8 30 24z" fill="${top}"/><rect x="34" y="52" width="12" height="12" rx="4" fill="${skin}"/><ellipse cx="40" cy="42" rx="14" ry="16" fill="${skin}"/>${hairFront}<circle cx="34.5" cy="43" r="1.4" fill="#2B1B12"/><circle cx="45.5" cy="43" r="1.4" fill="#2B1B12"/><path d="M35 50c3 3 7 3 10 0" stroke="#8A4B3A" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>`;
+}
+function avatarHTML(p,size){
+  const inner = p.photo ? `<img src="${p.photo}" alt="Photo of ${p.name}">` : avatarSVG(p.name);
+  return `<span class="avatar" style="width:${size}px;height:${size}px;">${inner}</span>`;
+}
+
 const providers = [
   {name:"Maria Alvarez", creds:"M.S., CCC-SLP", city:"Silver Spring, MD", zip:"20910", concerns:["articulation","language-delay"], ages:["toddler","preschool","school"], settings:["home","teletherapy"], insurance:["bcbs","aetna","medicaid"], years:8, times:["morning","afternoon"], days:["mon","tue","wed","thu"], bio:"Bilingual (Spanish/English) SLP who loves working with toddlers and preschoolers on early sounds and vocabulary.", treatment:"Play-based, family-coached sessions."},
   {name:"James Whitfield", creds:"M.A., CCC-SLP, BCS-F", city:"Washington, DC", zip:"20001", concerns:["fluency","social"], ages:["school","teen","adult"], settings:["clinic","teletherapy"], insurance:["cigna","uhc","self-pay"], years:15, times:["afternoon","evening"], days:["tue","thu","fri"], bio:"Board-certified fluency specialist running both 1:1 therapy and a teen stuttering support group.", treatment:"Structured fluency shaping with a support-group model."},
@@ -838,7 +859,7 @@ function renderDiscover(){
   grid.innerHTML = list.map(p=>`
     <div class="card">
       <div class="card-top">
-        <div><h3>${p.name}</h3><div class="creds">${p.creds}</div></div>
+        <div class="card-id">${avatarHTML(p,56)}<div><h3>${p.name}</h3><div class="creds">${p.creds}</div></div></div>
         ${p.dist!==null ? `<div class="dist-badge">${p.dist.toFixed(1)} mi</div>` : ''}
       </div>
       <div class="loc">📍 ${p.city}</div>
@@ -863,7 +884,7 @@ function openClinicianModal(name){
   openModal(`
     <button class="modal-close" onclick="closeModal()">&times;</button>
     <p class="eyebrow">Clinician profile</p>
-    <h2 style="font-size:1.35rem;">${p.name}</h2>
+    <div style="display:flex; align-items:center; gap:1rem; margin:0.3rem 0 0.4rem;">${avatarHTML(p,84)}<h2 style="font-size:1.35rem;">${p.name}</h2></div>
     <div class="creds" style="margin-bottom:0.8rem;">${p.creds} · ${p.years} yrs experience</div>
     <p style="color:var(--ink-soft); font-size:0.94rem; line-height:1.6;">${p.bio}</p>
     <div class="signup-section-title" style="margin-top:1.2rem;">Certifications & specialties</div>
