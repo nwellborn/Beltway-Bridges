@@ -238,61 +238,208 @@
     header, section, .tabbar{padding-left:5vw; padding-right:5vw;}
     .row-2{grid-template-columns:1fr;}
   }
+
+  /* ===== Redesign: header, hero, search, cards, skyline ===== */
+  :root{--blue:#0B63CE; --blue-soft:#EAF2FD; --blue-line:#CFE0F6;}
+  body{background:#fff;}
+  header.site-header{padding:0 5vw; overflow:visible; background:#fff; position:sticky; top:0; z-index:60; box-shadow:0 1px 0 var(--line);}
+  .site-nav{max-width:1240px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:0.7rem 0;}
+  .brand img{display:block; width:230px; height:auto; mix-blend-mode:multiply;}
+  .nav-menu{display:flex; align-items:center; gap:2rem; flex:1; justify-content:space-between; margin-left:2rem;}
+  .nav-links{display:flex; gap:2rem; margin:0 auto; font-weight:600; font-size:0.97rem;}
+  .nav-links a{color:var(--pine-deep); text-decoration:none; padding:0.4rem 0; border-bottom:2px solid transparent;}
+  .nav-links a:hover{border-bottom-color:var(--blue);}
+  .nav-actions{display:flex; align-items:center; gap:0.8rem;}
+  .btn-outline{background:#fff; color:var(--pine-deep); border:1.5px solid var(--blue); border-radius:12px; padding:0.6rem 1.15rem; font:600 0.95rem 'Inter',sans-serif; cursor:pointer;}
+  .btn-outline:hover{background:var(--blue-soft);}
+  .btn-blue{background:var(--blue); color:#fff; border:none; border-radius:12px; padding:0.65rem 1.25rem; font:700 0.95rem 'Inter',sans-serif; cursor:pointer; box-shadow:0 4px 12px rgba(11,99,206,0.25); white-space:nowrap;}
+  .btn-blue:hover{background:#0953AE;}
+  .nav-actions .user-pill{background:var(--blue-soft); color:var(--pine-deep); padding:0.45rem 0.9rem; border-radius:999px; font-size:0.85rem; font-weight:700; white-space:nowrap;}
+  .nav-actions .linklike{background:none; border:none; font:600 0.9rem 'Inter'; color:var(--pine-deep); cursor:pointer;}
+  .nav-toggle{display:none; background:none; border:1.5px solid var(--blue-line); border-radius:10px; width:44px; height:44px; padding:0; cursor:pointer; flex-direction:column; align-items:center; justify-content:center; gap:4px;}
+  .nav-toggle span{display:block; width:20px; height:2px; background:var(--pine-deep); border-radius:2px;}
+
+  .hero{max-width:none; margin:0; padding:1.6rem 0 0 max(5vw, calc((100vw - 1240px) / 2)); display:grid; grid-template-columns:1.15fr 1fr; gap:0; align-items:center; position:relative;}
+  .hero-photo::after{content:''; position:absolute; left:0; right:0; bottom:0; height:35%; background:linear-gradient(to bottom, rgba(255,255,255,0), #fff);}
+  .hero-text{position:relative; z-index:2; padding:1rem 1.5rem 4.5rem 0;}
+  .hero h1{font-family:'Fraunces',serif; font-weight:700; font-size:clamp(2.1rem,4vw,3.5rem); line-height:1.1; color:var(--pine-deep); letter-spacing:-0.02em; margin:0 0 1.2rem; max-width:12.5em;}
+  .hero-sub{font-size:clamp(1.05rem,1.5vw,1.3rem); line-height:1.45; color:var(--blue); max-width:100%; margin:0 0 1.5rem;}
+  .hero-sub strong{font-weight:700;}
+  .badges{display:flex; flex-wrap:wrap; gap:0.6rem;}
+  .badge{display:inline-flex; align-items:center; gap:0.45rem; white-space:nowrap; background:var(--blue-soft); border:1px solid var(--blue-line); color:var(--pine-deep); border-radius:999px; padding:0.45rem 0.85rem; font-weight:600; font-size:0.86rem; box-shadow:0 2px 8px rgba(11,99,206,0.08);}
+  .badge svg{width:19px; height:19px; color:var(--blue);}
+  .hero-photo{margin:-1.6rem 0 0 0; align-self:stretch; position:relative; min-height:360px;}
+  .hero-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; border-radius:0 0 0 0;
+    -webkit-mask-image:linear-gradient(to right, transparent 0, #000 12%); mask-image:linear-gradient(to right, transparent 0, #000 12%);}
+
+  .discover-wrap{max-width:1240px; margin:-3rem auto 0; padding:0 5vw; position:relative; z-index:5;}
+  .discover-box{background:#fff; border:1.5px solid var(--blue-line); border-radius:28px; padding:1.4rem 1.6rem 1.5rem; box-shadow:0 14px 40px rgba(16,27,77,0.12); max-width:1080px; margin:0 auto;}
+  .cat-row{display:flex; flex-wrap:wrap; justify-content:center; gap:0.8rem; margin-bottom:1.1rem;}
+  .cat{display:inline-flex; align-items:center; gap:0.55rem; padding:0.7rem 1.4rem; border-radius:999px; border:1.5px solid var(--line); background:#fff; color:var(--pine-deep); font:600 0.98rem 'Inter',sans-serif; cursor:pointer; box-shadow:0 2px 6px rgba(16,27,77,0.05);}
+  .cat svg{width:22px; height:22px;}
+  .cat:hover{border-color:var(--blue);}
+  .cat.active{background:var(--blue); border-color:var(--blue); color:#fff; box-shadow:0 6px 16px rgba(11,99,206,0.3);}
+  .search-row{display:flex; align-items:center; gap:0.6rem; border:1.5px solid var(--blue-line); border-radius:999px; padding:0.45rem 0.5rem 0.45rem 1.2rem; background:#fff;}
+  .search-ic{color:var(--pine-deep); display:flex;}
+  .search-ic svg{width:26px; height:26px;}
+  .search-row textarea{flex:1; min-width:0; border:none; outline:none; resize:none; font:500 1rem/1.4 'Inter',sans-serif; color:var(--ink); padding:0.7rem 0.3rem; background:transparent; height:2.9rem; overflow:hidden;}
+  .search-row:focus-within{border-color:var(--blue); box-shadow:0 0 0 3px rgba(11,99,206,0.15);}
+  .btn-navy{background:var(--pine-deep); color:#fff; border:none; border-radius:999px; padding:0.85rem 2rem; font:700 1.02rem 'Inter',sans-serif; cursor:pointer; white-space:nowrap;}
+  .btn-navy:hover{background:#0a1236;}
+
+  .trio{max-width:1240px; margin:2rem auto 0; padding:0 5vw; display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem;}
+  .trio-card{border-radius:22px; padding:1.3rem 1.4rem 1.3rem; display:flex; flex-direction:column; gap:0.7rem; cursor:pointer; border:1px solid transparent; box-shadow:0 6px 18px rgba(16,27,77,0.06); transition:transform .15s, box-shadow .15s;}
+  .trio-card:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(16,27,77,0.1);}
+  .trio-card.green{background:linear-gradient(135deg,#EAF5EC,#F4FAF5); border-color:#D3E8D8; --accent:#1B6B2E;}
+  .trio-card.blue{background:linear-gradient(135deg,#E6F0FC,#F2F7FD); border-color:#CFE0F6; --accent:#0F3A8A;}
+  .trio-card.peach{background:linear-gradient(135deg,#FDEBDF,#FEF5EE); border-color:#F6D8C4; --accent:#B8481A;}
+  .trio-head{display:flex; align-items:flex-start; justify-content:space-between; gap:0.9rem;}
+  .trio-title{display:flex; align-items:flex-start; gap:0.7rem; min-width:0;}
+  .trio-ic{color:var(--accent); display:flex; flex-shrink:0; margin-top:2px;}
+  .trio-ic svg{width:34px; height:34px;}
+  .trio-title h3{font-family:'Inter',sans-serif; font-weight:800; font-size:1.2rem; line-height:1.2; color:var(--pine-deep); letter-spacing:-0.01em;}
+  .trio-thumb{width:92px; height:72px; object-fit:cover; border-radius:14px; flex-shrink:0; border:2px solid #fff; box-shadow:0 3px 10px rgba(16,27,77,0.15);}
+  .trio-card p{margin:0; font-size:0.97rem; line-height:1.5; color:var(--ink); flex:1;}
+  .trio-btn{align-self:flex-start; display:inline-flex; align-items:center; gap:0.5rem; background:rgba(255,255,255,0.85); color:var(--accent); border:1.5px solid var(--accent); border-radius:999px; padding:0.5rem 1.1rem; font:700 0.95rem 'Inter',sans-serif; cursor:pointer;}
+  .trio-btn svg{width:18px; height:18px;}
+  .trio-btn:hover{background:#fff;}
+
+  .bridge-line{margin-top:1.8rem; text-align:center; overflow:hidden; background:linear-gradient(to bottom,#fff,#F3F8FE);}
+  .bridge-line p{display:flex; align-items:center; justify-content:center; gap:1.2rem; margin:0; padding:0 5vw; font-family:'Fraunces',serif; font-size:clamp(1.05rem,2.2vw,1.6rem); font-weight:600; color:var(--pine-deep);}
+  .bridge-line em{font-style:italic;}
+  .bridge-line .rule{flex:0 1 110px; height:2px; background:var(--blue-line);}
+  .skyline{display:block; width:100%; height:auto; margin-top:0.6rem;}
+
+  .founder-note h2{font-size:1.75rem; line-height:1.2;}
+  .founder-note .pull{font-family:'Fraunces',serif; font-style:italic; font-size:1.25rem; color:var(--pine-deep); border-left:4px solid var(--blue); padding-left:1rem; margin:1.6rem 0 1rem;}
+  .founder-note .sign{font-weight:700; color:var(--pine-deep); margin-top:1.4rem;}
+
+  @media (max-width: 980px){
+    .nav-links{gap:1.1rem; font-size:0.9rem;}
+    .nav-menu{gap:1rem; margin-left:1rem;}
+    .brand img{width:190px;}
+  }
+  @media (max-width: 860px){
+    .nav-toggle{display:flex;}
+    .site-nav{flex-wrap:wrap;}
+    .brand img{width:170px;}
+    .nav-menu{display:none; width:100%; flex-direction:column; align-items:stretch; margin:0; gap:0.8rem; padding:0.4rem 0 1rem;}
+    .nav-menu.open{display:flex;}
+    .nav-links{flex-direction:column; gap:0; margin:0;}
+    .nav-links a{padding:0.85rem 0; border-bottom:1px solid var(--line); font-size:1rem;}
+    .nav-actions{flex-direction:column-reverse; align-items:stretch;}
+    .nav-actions #navAuthArea{display:flex;}
+    .nav-actions .btn-outline,.nav-actions .btn-blue{width:100%; text-align:center;}
+    .hero{grid-template-columns:1fr; padding:1.4rem 5vw 0;}
+    .hero-photo::after{display:none;}
+    .hero-text{padding-right:0;}
+    .hero-text{padding-bottom:1.4rem;}
+    .hero-photo{margin:0 -5vw; min-height:0; aspect-ratio:16/10;}
+    .hero-photo img{-webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 18%); mask-image:linear-gradient(to bottom, transparent 0, #000 18%);}
+    .discover-wrap{margin-top:-2rem;}
+    .trio{grid-template-columns:1fr;}
+    .skyline{width:1000px; max-width:none; margin-left:50%; transform:translateX(-58%);}
+  }
+  @media (max-width: 560px){
+    .discover-box{padding:1.1rem 1rem 1.2rem; border-radius:22px;}
+    .cat-row{display:grid; grid-template-columns:1fr 1fr; gap:0.55rem;}
+    .cat{justify-content:center; padding:0.65rem 0.5rem; font-size:0.86rem; gap:0.4rem; text-align:center;}
+    .cat svg{width:18px; height:18px; flex-shrink:0;}
+    .search-row{flex-wrap:wrap; border-radius:20px; padding:0.6rem 0.8rem; gap:0.4rem;}
+    .search-ic{display:none;}
+    .search-row textarea{flex:1 1 100%; padding:0.5rem 0.2rem; height:4.9rem; font-size:0.95rem;}
+    .btn-navy{width:100%; padding:0.8rem;}
+    .badge{font-size:0.82rem; padding:0.45rem 0.8rem;}
+    .bridge-line .rule{display:none;}
+    .bridge-line p{padding:0 6vw;}
+  }
 </style>
 </head>
 <body>
-
-<div class="preview-banner">🚧 <span>Early preview — sign-ups coming soon</span></div>
 
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal-box" id="modalBox"></div>
 </div>
 
-<header>
-  <div class="nav" id="navRow">
-    <button class="linklike" onclick="switchTab('about')">About Us</button>
-    <span class="divider"></span>
-    <span id="navAuthArea">
-      <button class="linklike" onclick="openLoginModal()">Log In</button>
-    </span>
-    <button class="btn-join" id="navSignupBtn" onclick="openSignupModal()">Sign Up</button>
-  </div>
-
-  <div class="logo-wrap">
-    <img class="logo-img" src="logo.png" alt="Beltway Bridges — Connecting DMV Families with Local Providers &amp; Resources.">
-  </div>
-
-  <div class="tagline"><span>PERSONALIZED.</span> <span>CONNECTED.</span> <span>LOCAL.</span></div>
-
-  <div class="hero-copy">
-    <p>Beltway Bridges connects families, individuals, and providers through personalized discovery and trusted professional networks.</p>
-  </div>
-  <div class="free-ribbon">💚 Always free for families</div>
-
-  <div class="feature-row">
-    <div class="feature-card green" onclick="goToRequest()">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2E7D4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17.5" cy="9" r="2.5"/><path d="M3 20c0-3.4 2.7-6 6-6s6 2.6 6 6"/><path d="M15.5 14.3c.6-.2 1.3-.3 2-.3 2.2 0 3.9 1.8 3.9 4"/></svg></div>
-      <div class="feature-label">For Families</div>
-      <h3>Find the Right Support</h3>
-      <p>Discover local providers and specialists who understand your child's unique needs.</p>
-      <button class="pill" onclick="event.stopPropagation(); goToRequest()">Get Started</button>
-    </div>
-    <div class="feature-card blue" onclick="chooseClinicianSignup()">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1D2E73" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><circle cx="5.5" cy="18.5" r="2.2"/><circle cx="18.5" cy="18.5" r="2.2"/><path d="M12 7.2v4.3M12 11.5H5.5v4.8M12 11.5h6.5v4.8"/></svg></div>
-      <div class="feature-label">For Professionals</div>
-      <h3>Build Your Referral Network</h3>
-      <p>Connect with trusted local providers, discover referral partners, and reach more families.</p>
-      <button class="pill" onclick="event.stopPropagation(); chooseClinicianSignup()">Join the Network</button>
-    </div>
-    <div class="feature-card red" onclick="switchTab('groups')">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D93A3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h6"/><path d="M4 10h16M8 3v4M16 3v4"/><path d="M19 22l-3.2-3.1a1.9 1.9 0 0 1 2.7-2.7l.5.5.5-.5a1.9 1.9 0 0 1 2.7 2.7z"/></svg></div>
-      <div class="feature-label">Local Activities &amp; Events</div>
-      <h3>Find Your Community</h3>
-      <p>Explore social groups, camps, workshops, and local events that build communication, confidence, and connection.</p>
-      <button class="pill" onclick="event.stopPropagation(); switchTab('groups')">Explore Activities</button>
+<header class="site-header">
+  <div class="site-nav">
+    <a class="brand" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;"><img src="logo.png" alt="Beltway Bridges — Connecting DMV Families with Local Providers &amp; Resources."></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" onclick="toggleNav()"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu">
+      <nav class="nav-links">
+        <a href="#" onclick="navTo('request'); return false;">For Families</a>
+        <a href="#" onclick="navTo('clinician-signup'); return false;">For Professionals</a>
+        <a href="#" onclick="navTo('discover'); return false;">Explore the Network</a>
+        <a href="#" onclick="navTo('about'); return false;">About</a>
+      </nav>
+      <div class="nav-actions">
+        <span id="navAuthArea"><button class="btn-outline" onclick="openLoginModal()">Sign In</button></span>
+        <button class="btn-blue" id="navSignupBtn" onclick="openSignupModal()">Join the Network</button>
+      </div>
     </div>
   </div>
 </header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>The right support starts with the right connection.</h1>
+    <p class="hero-sub">Discover local <strong>Speech therapists</strong> (SLPs) and other specialists who offer support for your unique needs.</p>
+    <div class="badges">
+      <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Local (DC • MD • VA)</span>
+      <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17.5" cy="9" r="2.5"/><path d="M3 20c0-3.4 2.7-6 6-6s6 2.6 6 6"/><path d="M15.5 14.3c.6-.2 1.3-.3 2-.3 2.2 0 3.9 1.8 3.9 4"/></svg>Trusted Network</span>
+      <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20z"/></svg>Always Free for Families</span>
+    </div>
+  </div>
+  <div class="hero-photo"><img src="images/hero.jpg" alt="A smiling child talking with a speech therapist while a parent looks on"></div>
+</section>
+
+<section class="discover-wrap">
+  <div class="discover-box">
+    <div class="cat-row" role="tablist" aria-label="What are you looking for?">
+      <button class="cat active" role="tab" data-cat="providers" onclick="setHeroCat('providers')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg>Providers</button>
+      <button class="cat" role="tab" data-cat="social" onclick="setHeroCat('social')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17.5" cy="9" r="2.5"/><path d="M3 20c0-3.4 2.7-6 6-6s6 2.6 6 6"/><path d="M15.5 14.3c.6-.2 1.3-.3 2-.3 2.2 0 3.9 1.8 3.9 4"/></svg>Social Groups</button>
+      <button class="cat" role="tab" data-cat="events" onclick="setHeroCat('events')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg>Events &amp; Calendar</button>
+      <button class="cat" role="tab" data-cat="programs" onclick="setHeroCat('programs')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>Programs &amp; Resources</button>
+    </div>
+    <form class="search-row" id="heroSearchForm" onsubmit="runHeroSearch(event)">
+      <span class="search-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></span>
+      <textarea id="heroSearchInput" rows="1" placeholder="Tell us what you’re looking for—such as speech therapy, a social group, a camp, or an event…" aria-label="Search" onkeydown="if(event.key==='Enter'){event.preventDefault(); document.getElementById('heroSearchForm').requestSubmit();}"></textarea>
+      <button type="submit" class="btn-navy">Discover</button>
+    </form>
+  </div>
+</section>
+
+<section class="trio">
+  <article class="trio-card green" onclick="goToRequest()">
+    <div class="trio-head">
+      <div class="trio-title"><span class="trio-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17.5" cy="9" r="2.5"/><path d="M3 20c0-3.4 2.7-6 6-6s6 2.6 6 6"/><path d="M15.5 14.3c.6-.2 1.3-.3 2-.3 2.2 0 3.9 1.8 3.9 4"/></svg></span><h3>For Families</h3></div>
+      <img class="trio-thumb" src="images/thumb-families.jpg" alt="A parent playing with a young child">
+    </div>
+    <p>Find the right support for yourself or a loved one’s unique needs.</p>
+    <button class="trio-btn" onclick="event.stopPropagation(); goToRequest()">Get Started<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </article>
+  <article class="trio-card blue" onclick="chooseClinicianSignup()">
+    <div class="trio-head">
+      <div class="trio-title"><span class="trio-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><circle cx="5.5" cy="18.5" r="2.2"/><circle cx="18.5" cy="18.5" r="2.2"/><path d="M12 7.2v4.3M12 11.5H5.5v4.8M12 11.5h6.5v4.8"/></svg></span><h3>For Professionals</h3></div>
+      <img class="trio-thumb" src="images/thumb-professionals.jpg" alt="Professionals working together">
+    </div>
+    <p>Connect with local families, grow your referral network, and share resources.</p>
+    <button class="trio-btn" onclick="event.stopPropagation(); chooseClinicianSignup()">Join the Network<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </article>
+  <article class="trio-card peach" onclick="switchTab('groups')">
+    <div class="trio-head">
+      <div class="trio-title"><span class="trio-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg></span><h3>Social Skills Groups and Local Activities</h3></div>
+      <img class="trio-thumb" src="images/thumb-groups.jpg" alt="Teens laughing together over a game">
+    </div>
+    <p>Explore social groups, camps, workshops, and community events in the DMV.</p>
+    <button class="trio-btn" onclick="event.stopPropagation(); switchTab('groups')">Explore Activities<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </article>
+</section>
+
+<section class="bridge-line">
+  <p><span class="rule"></span><em>A bridge between DMV families, local providers, and resources.</em><span class="rule"></span></p>
+  <svg class="skyline" viewBox="0 0 1600 150" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 150 L0 112 C120 92 220 100 330 106 C470 114 560 96 700 100 C860 104 960 118 1100 108 C1240 98 1380 96 1500 104 C1550 107 1580 108 1600 106 L1600 150 Z" fill="#DCEAFA"/><g fill="#C9DEF6"><rect x="300" y="88" width="170" height="8"/><path d="M308 88 L385 70 L462 88 Z"/><rect x="304" y="96" width="162" height="6"/><rect x="312.0" y="102" width="7" height="30"/><rect x="329.5" y="102" width="7" height="30"/><rect x="347.0" y="102" width="7" height="30"/><rect x="364.5" y="102" width="7" height="30"/><rect x="382.0" y="102" width="7" height="30"/><rect x="399.5" y="102" width="7" height="30"/><rect x="417.0" y="102" width="7" height="30"/><rect x="434.5" y="102" width="7" height="30"/><rect x="452.0" y="102" width="7" height="30"/><rect x="294" y="132" width="182" height="6"/><rect x="286" y="138" width="198" height="6"/></g><g fill="#B7D2F2"><path d="M753 135 L755 20 L760 6 L765 20 L767 135 Z"/><rect x="746" y="130" width="28" height="8"/></g><g fill="#C9DEF6"><rect x="950" y="112" width="260" height="26"/><rect x="980" y="100" width="200" height="14"/><rect x="984" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1002" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1020" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1038" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1056" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1074" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1092" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1110" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1128" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1146" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1164" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1042" y="84" width="76" height="18"/><path d="M1046 84 C1046 52 1062 38 1080 38 C1098 38 1114 52 1114 84 Z"/><rect x="1077" y="20" width="6" height="20"/><path d="M1076 20 L1080 10 L1084 20 Z"/><rect x="1036" y="80" width="88" height="5"/></g><circle cx="20" cy="116" r="17" fill="#C9DEF6"/><circle cx="54" cy="114" r="15" fill="#C9DEF6"/><circle cx="88" cy="118" r="21" fill="#C9DEF6"/><circle cx="122" cy="119" r="15" fill="#C9DEF6"/><circle cx="156" cy="114" r="14" fill="#C9DEF6"/><circle cx="190" cy="116" r="22" fill="#C9DEF6"/><circle cx="224" cy="117" r="14" fill="#C9DEF6"/><circle cx="258" cy="112" r="22" fill="#C9DEF6"/><circle cx="500" cy="116" r="19" fill="#C9DEF6"/><circle cx="530" cy="119" r="16" fill="#C9DEF6"/><circle cx="560" cy="117" r="18" fill="#C9DEF6"/><circle cx="590" cy="110" r="14" fill="#C9DEF6"/><circle cx="620" cy="116" r="18" fill="#C9DEF6"/><circle cx="650" cy="118" r="17" fill="#C9DEF6"/><circle cx="680" cy="116" r="18" fill="#C9DEF6"/><circle cx="710" cy="119" r="19" fill="#C9DEF6"/><circle cx="800" cy="110" r="19" fill="#C9DEF6"/><circle cx="832" cy="112" r="20" fill="#C9DEF6"/><circle cx="864" cy="118" r="17" fill="#C9DEF6"/><circle cx="896" cy="113" r="17" fill="#C9DEF6"/><circle cx="928" cy="119" r="18" fill="#C9DEF6"/><circle cx="1210" cy="116" r="22" fill="#C9DEF6"/><circle cx="1240" cy="116" r="14" fill="#C9DEF6"/><circle cx="1270" cy="112" r="18" fill="#C9DEF6"/><circle cx="1300" cy="114" r="17" fill="#C9DEF6"/><g fill="#B7D2F2"><rect x="1300" y="104" width="310" height="9"/><rect x="1300" y="113" width="310" height="37"/></g><g fill="#DCEAFA"><path d="M1307.4 150 L1307.4 112 A23.6 21.2 0 0 1 1354.6 112 L1354.6 150 Z"/><path d="M1369.4 150 L1369.4 112 A23.6 21.2 0 0 1 1416.6 112 L1416.6 150 Z"/><path d="M1431.4 150 L1431.4 112 A23.6 21.2 0 0 1 1478.6 112 L1478.6 150 Z"/><path d="M1493.4 150 L1493.4 112 A23.6 21.2 0 0 1 1540.6 112 L1540.6 150 Z"/><path d="M1555.4 150 L1555.4 112 A23.6 21.2 0 0 1 1602.6 112 L1602.6 150 Z"/></g><g fill="#B7D2F2"><rect x="1298.5" y="92" width="3" height="14"/><circle cx="1300.0" cy="90" r="4"/><rect x="1360.5" y="92" width="3" height="14"/><circle cx="1362.0" cy="90" r="4"/><rect x="1422.5" y="92" width="3" height="14"/><circle cx="1424.0" cy="90" r="4"/><rect x="1484.5" y="92" width="3" height="14"/><circle cx="1486.0" cy="90" r="4"/><rect x="1546.5" y="92" width="3" height="14"/><circle cx="1548.0" cy="90" r="4"/><rect x="1608.5" y="92" width="3" height="14"/><circle cx="1610.0" cy="90" r="4"/></g></svg>
+</section>
 
 <div class="footer-strip">
   <div class="fs-item">📍 Washington, DC <span class="fs-dot"></span> Maryland <span class="fs-dot"></span> Virginia</div>
@@ -436,6 +583,7 @@
     <h2>Browse the directory yourself</h2>
     <p>Search by ZIP code and distance to find clinicians near you.</p>
   </div>
+  <div id="searchNoteD"></div>
 
   <div class="filters" style="grid-template-columns: 2fr 1fr;">
     <div class="field">
@@ -474,6 +622,7 @@
     <h2>Find social groups, camps & events</h2>
     <p>Browse local groups that build communication, confidence, and connection — filter by area, age, and type.</p>
   </div>
+  <div id="searchNoteG"></div>
 
   <div class="filters" style="grid-template-columns: repeat(3, 1fr); position:static;">
     <div class="field">
@@ -516,13 +665,19 @@
 
 <!-- ============ ABOUT US ============ -->
 <section class="panel" id="panel-about">
-  <div class="about-card">
-    <p class="eyebrow">About Us</p>
-    <h2>Hi, I'm the founder of Beltway Bridges.</h2>
-    <p>I'm a speech-language pathologist and a mom, based right here in the DMV area. Like a lot of parents, I know how overwhelming it can feel to search for the right specialist for your kid — and as an SLP, I also know how many wonderful independent clinicians are out there who families simply never find.</p>
-    <p>For years, I've run a Facebook group of nearly 2,000 speech-language pathologists across DC, Maryland, and Virginia — a place where we share resources, ask each other questions, and support one another. That community is the backbone of Beltway Bridges: every clinician on this platform is part of a network I know and trust, not a stranger pulled from a generic search.</p>
-    <p>Beltway Bridges exists to make that same trusted, local network available to families — for free, always. Whether you're looking for a clinician, trying to find your child's people through a social group, or you're a fellow SLP looking to grow your caseload, I built this for you.</p>
-    <p style="color:var(--ink-soft); font-size:0.88rem; font-style:italic;">— This is placeholder bio copy for the demo. Swap in your real name, story, and photo when this goes live.</p>
+  <div class="about-card founder-note" style="max-width:780px;">
+    <p class="eyebrow">A Note From Our Founder</p>
+    <h2>Hi, I’m Aviva, the founder of Beltway Bridges.</h2>
+    <p>I’m a speech-language pathologist and a mom, right here in the DMV. For more than 15 years, I’ve been building relationships within the speech-language community across DC, Maryland, and Virginia.</p>
+    <p>Throughout my career, I’ve seen how important the right connection can be. I’ve also learned that some of the most valuable recommendations don’t come from a Google search or an online directory. They come from people you know and trust—colleagues who have worked alongside someone, know their strengths, and can speak firsthand about the care they provide.</p>
+    <p>As a mom, I understand how personal the search for the right support can be. You aren’t simply looking for a provider. You’re looking for someone you feel comfortable trusting with your child.</p>
+    <p>That’s one of the reasons I created Beltway Bridges.</p>
+    <p>I wanted to bring together the incredible network of professionals, programs, and resources that already exists in our community and make those connections easier for families to discover.</p>
+    <p>It’s also why colleague recommendations and testimonials are an important part of Beltway Bridges. I believe families deserve more than a list of names and credentials. They deserve insight into the people behind the profiles—and the perspectives of professionals who know their work firsthand.</p>
+    <p>My hope is that Beltway Bridges becomes a place where families feel more confident navigating their options, providers can build meaningful connections, and our local community becomes stronger through the relationships we share.</p>
+    <p>This is personal to me. It’s grown out of more than 15 years of professional relationships, firsthand experience, and a belief that finding the right support should feel a little less overwhelming.</p>
+    <p class="pull">Because the right connection makes all the difference.</p>
+    <p class="sign">— Founder, Beltway Bridges</p>
   </div>
 </section>
 
@@ -624,7 +779,7 @@ function renderAuthNav(){
     area.innerHTML = `<span class="user-pill">Logged in · ${currentUser.role}</span> <button class="linklike" style="margin-left:0.6rem;" onclick="logOut()">Log out</button>`;
     signupBtn.style.display = 'none';
   } else {
-    area.innerHTML = `<button class="linklike" onclick="openLoginModal()">Log In</button>`;
+    area.innerHTML = `<button class="btn-outline" onclick="openLoginModal()">Sign In</button>`;
     signupBtn.style.display = 'inline-flex';
   }
 }
@@ -701,6 +856,55 @@ function chooseClientSignup(){
 function chooseClinicianSignup(){
   closeModal();
   switchTab('clinician-signup');
+}
+
+
+/* ================= Hero search + nav ================= */
+let heroCat = 'providers';
+let searchQuery = '';
+let heroTypes = null;
+const STOP = new Set(['the','and','for','you','your','with','such','tell','what','looking','are','from','near','find','need','want','about','some','any','that','this','has','have','can','who','how','but','not','all','our','out']);
+function queryWords(q){ return q.toLowerCase().split(/[^a-z0-9]+/).filter(w=>w.length>2 && !STOP.has(w)); }
+function matchesQuery(text){
+  const words = queryWords(searchQuery);
+  if(!words.length) return true;
+  const t = text.toLowerCase();
+  return words.some(w=>t.includes(w.replace(/s$/,'')));
+}
+function setHeroCat(c){
+  heroCat = c;
+  document.querySelectorAll('.cat').forEach(b=>b.classList.toggle('active', b.dataset.cat===c));
+}
+function runHeroSearch(e){
+  e.preventDefault();
+  searchQuery = document.getElementById('heroSearchInput').value.trim();
+  if(heroCat==='providers'){
+    heroTypes = null;
+    switchTab('discover'); renderDiscover();
+  } else {
+    heroTypes = heroCat==='social' ? ['group'] : heroCat==='events' ? ['event','camp'] : null;
+    groupState.type=''; document.getElementById('groupType').value='';
+    switchTab('groups'); renderGroups();
+  }
+  renderSearchNotes();
+}
+function clearSearch(){
+  searchQuery=''; heroTypes=null; document.getElementById('heroSearchInput').value='';
+  renderSearchNotes(); renderDiscover(); renderGroups();
+}
+function renderSearchNotes(){
+  const html = (searchQuery || heroTypes)
+    ? `<div class="note" style="margin:0 0 1rem;">Showing results${searchQuery ? ' for “'+searchQuery.replace(/</g,'&lt;')+'”' : ''} · <button class="linklike" style="background:none;border:none;color:var(--blue);font-weight:700;cursor:pointer;padding:0;" onclick="clearSearch()">Clear search</button></div>` : '';
+  ['searchNoteD','searchNoteG'].forEach(id=>{ const el=document.getElementById(id); if(el) el.innerHTML = html; });
+}
+function navTo(name){
+  document.getElementById('navMenu').classList.remove('open');
+  document.getElementById('navToggle').setAttribute('aria-expanded','false');
+  switchTab(name);
+}
+function toggleNav(){
+  const m=document.getElementById('navMenu'); const o=m.classList.toggle('open');
+  document.getElementById('navToggle').setAttribute('aria-expanded', o?'true':'false');
 }
 
 /* ================= Tabs ================= */
@@ -841,6 +1045,9 @@ function renderDiscover(){
 
   if(zip && radius > 0){
     list = list.filter(p => p.dist === null ? true : p.dist <= radius);
+  }
+  if(searchQuery){
+    list = list.filter(p => matchesQuery([p.name,p.creds,p.city,p.bio,p.treatment,p.concerns.map(c=>concernLabels[c]).join(' ')].join(' ')));
   }
   list.sort((a,b)=>{
     if(a.dist === null && b.dist === null) return a.name.localeCompare(b.name);
@@ -1029,7 +1236,7 @@ const socialGroups = [
   {name:"Apraxia Parent Support Meetup", type:"event", ages:["toddler","preschool"], city:"Columbia, MD", date:"Aug 22, 2026 · 10am", desc:"Single-session meetup for parents of children with apraxia to connect, share resources, and hear from a guest SLP.", organizer:"Hosted by Hannah Osei, M.S., CCC-SLP", details:"Coffee and childcare provided during the discussion portion. Guest talk followed by open Q&A and a resource handout."},
 ];
 const groupState = { type:"", age:"", location:"" };
-document.getElementById('groupType').addEventListener('change', e=>{ groupState.type = e.target.value; renderGroups(); });
+document.getElementById('groupType').addEventListener('change', e=>{ heroTypes = null; groupState.type = e.target.value; renderGroups(); });
 document.getElementById('groupAge').addEventListener('change', e=>{ groupState.age = e.target.value; renderGroups(); });
 document.getElementById('groupLocation').addEventListener('input', e=>{ groupState.location = e.target.value.trim().toLowerCase(); renderGroups(); });
 const typeLabels = {group:"Ongoing group", camp:"Camp", event:"One-time event"};
@@ -1074,6 +1281,8 @@ function groupImageSrc(g){
 function renderGroups(){
   const filtered = socialGroups.filter(g=>{
     if(groupState.type && g.type !== groupState.type) return false;
+    if(heroTypes && !heroTypes.includes(g.type)) return false;
+    if(searchQuery && !matchesQuery([g.name,g.desc,g.city,g.organizer||''].join(' '))) return false;
     if(groupState.age && !g.ages.includes(groupState.age)) return false;
     if(groupState.location && !g.city.toLowerCase().includes(groupState.location)) return false;
     return true;
