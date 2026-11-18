@@ -240,6 +240,7 @@
   }
 
   /* ===== Redesign: header, hero, search, cards, skyline ===== */
+  .badges, .discover-wrap{display:none !important;} /* hidden by request; remove this line to bring them back */
   :root{--blue:#0B63CE; --blue-soft:#EAF2FD; --blue-line:#CFE0F6;}
   body{background:#fff;}
   header.site-header{padding:0 5vw; overflow:visible; background:#fff; position:sticky; top:0; z-index:60; box-shadow:0 1px 0 var(--line);}
@@ -261,7 +262,7 @@
 
   .hero{max-width:none; margin:0; padding:1.6rem 0 0 max(5vw, calc((100vw - 1240px) / 2)); display:grid; grid-template-columns:1.15fr 1fr; gap:0; align-items:center; position:relative;}
   .hero-photo::after{content:''; position:absolute; left:0; right:0; bottom:0; height:35%; background:linear-gradient(to bottom, rgba(255,255,255,0), #fff);}
-  .hero-text{position:relative; z-index:2; padding:1rem 1.5rem 4.5rem 0;}
+  .hero-text{position:relative; z-index:2; padding:1rem 1.5rem 2.5rem 0;}
   .hero h1{font-family:'Fraunces',serif; font-weight:700; font-size:clamp(2.1rem,4vw,3.5rem); line-height:1.1; color:var(--pine-deep); letter-spacing:-0.02em; margin:0 0 1.2rem; max-width:12.5em;}
   .hero-sub{font-size:clamp(1.05rem,1.5vw,1.3rem); line-height:1.45; color:var(--blue); max-width:100%; margin:0 0 1.5rem;}
   .hero-sub strong{font-weight:700;}
@@ -336,7 +337,6 @@
     .hero-text{padding-bottom:1.4rem;}
     .hero-photo{margin:0 -5vw; min-height:0; aspect-ratio:16/10;}
     .hero-photo img{-webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 18%); mask-image:linear-gradient(to bottom, transparent 0, #000 18%);}
-    .discover-wrap{margin-top:-2rem;}
     .trio{grid-template-columns:1fr;}
     .skyline{width:1000px; max-width:none; margin-left:50%; transform:translateX(-58%);}
   }
@@ -382,7 +382,7 @@
 
 <section class="hero">
   <div class="hero-text">
-    <h1>The right support starts with the right connection.</h1>
+    <h1>A bridge between DMV families, local providers, and resources.</h1>
     <p class="hero-sub">Discover local <strong>Speech therapists</strong> (SLPs) and other specialists who offer support for your unique needs.</p>
     <div class="badges">
       <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Local (DC • MD • VA)</span>
@@ -437,7 +437,7 @@
 </section>
 
 <section class="bridge-line">
-  <p><span class="rule"></span><em>A bridge between DMV families, local providers, and resources.</em><span class="rule"></span></p>
+  <p><span class="rule"></span><em>The right support starts with the right connection.</em><span class="rule"></span></p>
   <svg class="skyline" viewBox="0 0 1600 150" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 150 L0 112 C120 92 220 100 330 106 C470 114 560 96 700 100 C860 104 960 118 1100 108 C1240 98 1380 96 1500 104 C1550 107 1580 108 1600 106 L1600 150 Z" fill="#DCEAFA"/><g fill="#C9DEF6"><rect x="300" y="88" width="170" height="8"/><path d="M308 88 L385 70 L462 88 Z"/><rect x="304" y="96" width="162" height="6"/><rect x="312.0" y="102" width="7" height="30"/><rect x="329.5" y="102" width="7" height="30"/><rect x="347.0" y="102" width="7" height="30"/><rect x="364.5" y="102" width="7" height="30"/><rect x="382.0" y="102" width="7" height="30"/><rect x="399.5" y="102" width="7" height="30"/><rect x="417.0" y="102" width="7" height="30"/><rect x="434.5" y="102" width="7" height="30"/><rect x="452.0" y="102" width="7" height="30"/><rect x="294" y="132" width="182" height="6"/><rect x="286" y="138" width="198" height="6"/></g><g fill="#B7D2F2"><path d="M753 135 L755 20 L760 6 L765 20 L767 135 Z"/><rect x="746" y="130" width="28" height="8"/></g><g fill="#C9DEF6"><rect x="950" y="112" width="260" height="26"/><rect x="980" y="100" width="200" height="14"/><rect x="984" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1002" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1020" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1038" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1056" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1074" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1092" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1110" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1128" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1146" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1164" y="114" width="6" height="22" fill="#DCEAFA"/><rect x="1042" y="84" width="76" height="18"/><path d="M1046 84 C1046 52 1062 38 1080 38 C1098 38 1114 52 1114 84 Z"/><rect x="1077" y="20" width="6" height="20"/><path d="M1076 20 L1080 10 L1084 20 Z"/><rect x="1036" y="80" width="88" height="5"/></g><circle cx="20" cy="116" r="17" fill="#C9DEF6"/><circle cx="54" cy="114" r="15" fill="#C9DEF6"/><circle cx="88" cy="118" r="21" fill="#C9DEF6"/><circle cx="122" cy="119" r="15" fill="#C9DEF6"/><circle cx="156" cy="114" r="14" fill="#C9DEF6"/><circle cx="190" cy="116" r="22" fill="#C9DEF6"/><circle cx="224" cy="117" r="14" fill="#C9DEF6"/><circle cx="258" cy="112" r="22" fill="#C9DEF6"/><circle cx="500" cy="116" r="19" fill="#C9DEF6"/><circle cx="530" cy="119" r="16" fill="#C9DEF6"/><circle cx="560" cy="117" r="18" fill="#C9DEF6"/><circle cx="590" cy="110" r="14" fill="#C9DEF6"/><circle cx="620" cy="116" r="18" fill="#C9DEF6"/><circle cx="650" cy="118" r="17" fill="#C9DEF6"/><circle cx="680" cy="116" r="18" fill="#C9DEF6"/><circle cx="710" cy="119" r="19" fill="#C9DEF6"/><circle cx="800" cy="110" r="19" fill="#C9DEF6"/><circle cx="832" cy="112" r="20" fill="#C9DEF6"/><circle cx="864" cy="118" r="17" fill="#C9DEF6"/><circle cx="896" cy="113" r="17" fill="#C9DEF6"/><circle cx="928" cy="119" r="18" fill="#C9DEF6"/><circle cx="1210" cy="116" r="22" fill="#C9DEF6"/><circle cx="1240" cy="116" r="14" fill="#C9DEF6"/><circle cx="1270" cy="112" r="18" fill="#C9DEF6"/><circle cx="1300" cy="114" r="17" fill="#C9DEF6"/><g fill="#B7D2F2"><rect x="1300" y="104" width="310" height="9"/><rect x="1300" y="113" width="310" height="37"/></g><g fill="#DCEAFA"><path d="M1307.4 150 L1307.4 112 A23.6 21.2 0 0 1 1354.6 112 L1354.6 150 Z"/><path d="M1369.4 150 L1369.4 112 A23.6 21.2 0 0 1 1416.6 112 L1416.6 150 Z"/><path d="M1431.4 150 L1431.4 112 A23.6 21.2 0 0 1 1478.6 112 L1478.6 150 Z"/><path d="M1493.4 150 L1493.4 112 A23.6 21.2 0 0 1 1540.6 112 L1540.6 150 Z"/><path d="M1555.4 150 L1555.4 112 A23.6 21.2 0 0 1 1602.6 112 L1602.6 150 Z"/></g><g fill="#B7D2F2"><rect x="1298.5" y="92" width="3" height="14"/><circle cx="1300.0" cy="90" r="4"/><rect x="1360.5" y="92" width="3" height="14"/><circle cx="1362.0" cy="90" r="4"/><rect x="1422.5" y="92" width="3" height="14"/><circle cx="1424.0" cy="90" r="4"/><rect x="1484.5" y="92" width="3" height="14"/><circle cx="1486.0" cy="90" r="4"/><rect x="1546.5" y="92" width="3" height="14"/><circle cx="1548.0" cy="90" r="4"/><rect x="1608.5" y="92" width="3" height="14"/><circle cx="1610.0" cy="90" r="4"/></g></svg>
 </section>
 
